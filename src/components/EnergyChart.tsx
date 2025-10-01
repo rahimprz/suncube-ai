@@ -19,7 +19,6 @@ export const EnergyChart = () => {
     gridFeed: 1.1
   });
 
-  // Simulate real-time data updates
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPower(prev => ({
@@ -29,7 +28,6 @@ export const EnergyChart = () => {
         gridFeed: Math.max(0, prev.gridFeed + (Math.random() - 0.5) * 0.3)
       }));
 
-      // Generate mock chart data
       const newData: EnergyData[] = Array.from({ length: 24 }, (_, i) => ({
         time: `${i.toString().padStart(2, '0')}:00`,
         generation: Math.random() * 6 + 1,
@@ -43,77 +41,80 @@ export const EnergyChart = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-      {/* Live Generation */}
-      <Card className="border-l-4 border-l-solar-yellow">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Solar Generation</CardTitle>
-          <Sun className="h-4 w-4 text-solar-yellow" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-foreground">
-            {currentPower.generation.toFixed(1)} kW
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      <Card className="relative overflow-hidden bg-[#6b9b8a]/90 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div className="absolute top-4 right-4 w-12 h-12 bg-[#8ab89e]/40 rounded-xl flex items-center justify-center">
+          <Sun className="h-6 w-6 text-[#d4e8a6]" />
+        </div>
+        <CardContent className="pt-6">
+          <div className="mb-4">
+            <CardTitle className="text-sm font-semibold text-white/90 mb-1">Solar</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/90">Generation</CardTitle>
           </div>
-          <div className="flex items-center space-x-2 mt-1">
-            <TrendingUp className="h-3 w-3 text-success" />
-            <p className="text-xs text-muted-foreground">
+          <div className="text-4xl font-bold text-white mb-4">
+            {currentPower.generation.toFixed(1)} <span className="text-xl text-white/90">kW</span>
+          </div>
+          <div className="flex items-center space-x-2 text-white/80">
+            <TrendingUp className="h-4 w-4" />
+            <p className="text-sm font-medium">
               +12% from yesterday
             </p>
           </div>
         </CardContent>
       </Card>
 
-      {/* Live Consumption */}
-      <Card className="border-l-4 border-l-grid-blue">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Consumption</CardTitle>
-          <Zap className="h-4 w-4 text-grid-blue" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-foreground">
-            {currentPower.consumption.toFixed(1)} kW
+      <Card className="relative overflow-hidden bg-[#7aa89d]/90 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div className="absolute top-4 right-4 w-12 h-12 bg-[#8db8a7]/40 rounded-xl flex items-center justify-center">
+          <Zap className="h-6 w-6 text-[#c8e4b8]" />
+        </div>
+        <CardContent className="pt-6">
+          <div className="mb-4">
+            <CardTitle className="text-sm font-semibold text-white/90">Consumption</CardTitle>
           </div>
-          <div className="flex items-center space-x-2 mt-1">
-            <Badge variant="secondary" className="text-xs">
-              Normal
-            </Badge>
+          <div className="text-4xl font-bold text-white mb-4">
+            {currentPower.consumption.toFixed(1)} <span className="text-xl text-white/90">kW</span>
+          </div>
+          <div className="text-sm font-medium text-white/80">
+            Normal
           </div>
         </CardContent>
       </Card>
 
-      {/* Battery Status */}
-      <Card className="border-l-4 border-l-primary">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Battery Level</CardTitle>
-          <Battery className="h-4 w-4 text-primary" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-foreground">
-            {Math.round(currentPower.battery)}%
+      <Card className="relative overflow-hidden bg-[#699c89]/90 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div className="absolute top-4 right-4 w-12 h-12 bg-[#7fae96]/40 rounded-xl flex items-center justify-center">
+          <Battery className="h-6 w-6 text-[#d0e8b2]" />
+        </div>
+        <CardContent className="pt-6">
+          <div className="mb-4">
+            <CardTitle className="text-sm font-semibold text-white/90 mb-1">Battery</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/90">Level</CardTitle>
           </div>
-          <div className="w-full bg-muted rounded-full h-2 mt-2">
-            <div 
-              className="bg-gradient-primary h-2 rounded-full transition-all duration-1000"
+          <div className="text-4xl font-bold text-white mb-4">
+            {Math.round(currentPower.battery)}<span className="text-xl text-white/90">%</span>
+          </div>
+          <div className="w-full bg-[#4d7a68]/50 rounded-full h-3 shadow-inner">
+            <div
+              className="bg-gradient-to-r from-[#a8d5a4] to-[#8bc896] h-3 rounded-full transition-all duration-1000 shadow-md"
               style={{ width: `${currentPower.battery}%` }}
             ></div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Grid Feed-in */}
-      <Card className="border-l-4 border-l-eco-green">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Grid Feed-in</CardTitle>
-          <TrendingUp className="h-4 w-4 text-eco-green" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold text-foreground">
-            {currentPower.gridFeed.toFixed(1)} kW
+      <Card className="relative overflow-hidden bg-[#759f91]/90 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <div className="absolute top-4 right-4 w-12 h-12 bg-[#89b39f]/40 rounded-xl flex items-center justify-center">
+          <TrendingUp className="h-6 w-6 text-[#d8eab4]" />
+        </div>
+        <CardContent className="pt-6">
+          <div className="mb-4">
+            <CardTitle className="text-sm font-semibold text-white/90 mb-1">Grid Feed-</CardTitle>
+            <CardTitle className="text-sm font-semibold text-white/90">in</CardTitle>
           </div>
-          <div className="flex items-center space-x-2 mt-1">
-            <Badge variant="outline" className="text-xs text-success border-success">
-              Earning Credits
-            </Badge>
+          <div className="text-4xl font-bold text-white mb-4">
+            {currentPower.gridFeed.toFixed(1)} <span className="text-xl text-white/90">kW</span>
+          </div>
+          <div className="text-sm font-medium text-white/80">
+            Earning Credits
           </div>
         </CardContent>
       </Card>

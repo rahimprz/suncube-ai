@@ -33,7 +33,8 @@ export const HeroSection = ({
   backgroundImage
 }: HeroSectionProps) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-eco">
+    <section className="relative overflow-hidden">
+      
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
           <img
@@ -48,22 +49,22 @@ export const HeroSection = ({
         {backAction && (
           <div className="mb-6">
             <Button variant="ghost" size="sm" asChild>
-              <a href={backAction.href} className="text-muted-foreground hover:text-foreground">
+              <a href={backAction.href} className="text-green-200 hover:text-white">
                 ← {backAction.label}
               </a>
             </Button>
           </div>
         )}
         <div className="text-center">
-          <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-6">
+          <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-400/20 text-green-300 border border-green-400/30 mb-6">
             {subtitle}
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             {title}
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
             {description}
           </p>
           
@@ -71,7 +72,7 @@ export const HeroSection = ({
             {primaryAction && (
               <Button 
                 size="lg" 
-                className="bg-gradient-primary text-white shadow-eco hover:shadow-glow transition-all"
+                className="bg-green-500 hover:bg-green-400 text-white shadow-lg hover:shadow-xl transition-all px-8 py-3 rounded-full font-semibold"
                 asChild
               >
                 <a href={primaryAction.href}>
@@ -82,7 +83,7 @@ export const HeroSection = ({
             )}
             
             {secondaryAction && (
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" className="bg-transparent border-2 border-green-300 text-green-200 hover:bg-green-400/20 hover:text-white hover:border-green-400 px-8 py-3 rounded-full font-semibold" asChild>
                 <a href={secondaryAction.href}>
                   {secondaryAction.label}
                 </a>

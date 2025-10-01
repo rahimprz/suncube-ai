@@ -96,46 +96,46 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="bg-background/95 backdrop-blur-md border-b border-border sticky top-0 z-50">
+    <nav className="bg-[rgb(14,90,56)]/95 backdrop-blur-sm sticky top-0 z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 bg-[#84cc16] rounded-lg flex items-center justify-center">
+              <Zap className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">Suncube AI</span>
+            <span className="text-xl font-bold text-white">Suncube AI</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
+          <div className="hidden lg:flex items-center space-x-1">
             {/* Home */}
             <Link
               to="/"
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
                 isActive("/")
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "text-[#84cc16]"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               Home
             </Link>
-            
+
             {/* Solutions dropdown */}
             <div className="relative group">
               <Link
                 to="/solutions"
-                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted whitespace-nowrap"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white whitespace-nowrap"
               >
                 Solutions
                 <ChevronDown className="w-4 h-4 ml-1" />
               </Link>
-              <div className="absolute top-full left-0 mt-1 w-64 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <div className="absolute top-full left-0 mt-1 w-64 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {subpageItems[2].subpages.map((subpage) => (
                   <Link
                     key={subpage.href}
                     to={subpage.href}
-                    className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                   >
                     {subpage.label}
                   </Link>
@@ -147,17 +147,17 @@ export const Navigation = () => {
             <div className="relative group">
               <Link
                 to="/billing"
-                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted whitespace-nowrap"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white whitespace-nowrap"
               >
                 Billing & Blockchain
                 <ChevronDown className="w-4 h-4 ml-1" />
               </Link>
-              <div className="absolute top-full left-0 mt-1 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <div className="absolute top-full left-0 mt-1 w-48 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {subpageItems[5].subpages.map((subpage) => (
                   <Link
                     key={subpage.href}
                     to={subpage.href}
-                    className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                   >
                     {subpage.label}
                   </Link>
@@ -169,24 +169,24 @@ export const Navigation = () => {
             <div className="relative group">
               <Link
                 to="/case-studies"
-                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted whitespace-nowrap"
+                className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white whitespace-nowrap"
               >
                 Case Studies
                 <ChevronDown className="w-4 h-4 ml-1" />
               </Link>
-              <div className="absolute top-full left-0 mt-1 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <div className="absolute top-full left-0 mt-1 w-48 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {subpageItems[6].subpages.map((subpage) => (
                   <Link
                     key={subpage.href}
                     to={subpage.href}
-                    className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                   >
                     {subpage.label}
                   </Link>
                 ))}
               </div>
             </div>
-            
+
             {/* Remaining navigation items */}
             {navigationItems.slice(0, 2).map((item) => (
               <Link
@@ -194,33 +194,33 @@ export const Navigation = () => {
                 to={item.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
                   isActive(item.href)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-[#84cc16]"
+                    : "text-gray-300 hover:text-white"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            
+
             {/* More dropdown for remaining items */}
             <div className="relative group">
-              <button className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted whitespace-nowrap">
+              <button className="flex items-center px-4 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white whitespace-nowrap">
                 More
                 <ChevronDown className="w-4 h-4 ml-1" />
               </button>
-              <div className="absolute top-full left-0 mt-1 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <div className="absolute top-full left-0 mt-1 w-48 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {/* About with subpages */}
                 <div className="relative group/sub">
-                  <div className="flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted">
+                  <div className="flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
                     <Link to="/about" className="flex-1">About</Link>
                     <ChevronDown className="w-3 h-3 ml-1" />
                   </div>
-                  <div className="absolute left-full top-0 ml-1 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all">
+                  <div className="absolute left-full top-0 ml-1 w-48 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all">
                     {subpageItems[3].subpages.map((subpage) => (
                       <Link
                         key={subpage.href}
                         to={subpage.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                       >
                         {subpage.label}
                       </Link>
@@ -229,16 +229,16 @@ export const Navigation = () => {
                 </div>
                 {/* Blog with subpages */}
                 <div className="relative group/sub">
-                  <div className="flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted">
+                  <div className="flex items-center justify-between px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
                     <Link to="/blog" className="flex-1">Blog</Link>
                     <ChevronDown className="w-3 h-3 ml-1" />
                   </div>
-                  <div className="absolute left-full top-0 ml-1 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all">
+                  <div className="absolute left-full top-0 ml-1 w-48 bg-[rgb(14,90,56)]/95 backdrop-blur-md border border-white/10 rounded-md shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all">
                     {subpageItems[4].subpages.map((subpage) => (
                       <Link
                         key={subpage.href}
                         to={subpage.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                       >
                         {subpage.label}
                       </Link>
@@ -250,7 +250,7 @@ export const Navigation = () => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="block px-4 py-2 text-sm text-foreground hover:bg-muted"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
                   >
                     {item.label}
                   </Link>
@@ -262,12 +262,12 @@ export const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/portal">
-              <Button variant="outline" size="sm">
+              <Button variant="ghost" className="text-white hover:bg-white/10 font-medium">
                 Portal Login
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="sm" className="bg-gradient-primary text-white shadow-eco">
+              <Button className="bg-[#84cc16] hover:bg-[#75bb14] text-white font-semibold rounded-full px-6 shadow-lg">
                 Request Demo
               </Button>
             </Link>
@@ -276,11 +276,11 @@ export const Navigation = () => {
           {/* Mobile menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-80 bg-[rgb(14,90,56)] border-white/10">
               <div className="flex flex-col space-y-4 mt-8">
                 {/* Home */}
                 <Link
@@ -288,8 +288,8 @@ export const Navigation = () => {
                   onClick={() => setIsOpen(false)}
                   className={`text-lg font-medium transition-colors ${
                     isActive("/")
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-[#84cc16]"
+                      : "text-gray-300 hover:text-white"
                   }`}
                 >
                   Home
@@ -303,17 +303,17 @@ export const Navigation = () => {
                       onClick={() => setIsOpen(false)}
                       className={`text-lg font-medium transition-colors ${
                         isActive("/solutions")
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "text-[#84cc16]"
+                          : "text-gray-300 hover:text-white"
                       }`}
                     >
                       Solutions
                     </Link>
                     <button
                       onClick={() => setIsSolutionsExpanded(!isSolutionsExpanded)}
-                      className="p-1"
+                      className="p-1 text-gray-300"
                     >
-                      <ChevronDown 
+                      <ChevronDown
                         className={`w-4 h-4 transition-transform ${
                           isSolutionsExpanded ? 'rotate-180' : ''
                         }`}
@@ -329,8 +329,8 @@ export const Navigation = () => {
                           onClick={() => setIsOpen(false)}
                           className={`text-sm transition-colors block ml-4 py-1 ${
                             isActive(subpage.href)
-                              ? "text-primary"
-                              : "text-muted-foreground hover:text-foreground"
+                              ? "text-[#84cc16]"
+                              : "text-gray-300 hover:text-white"
                           }`}
                         >
                           {subpage.label}
@@ -350,17 +350,17 @@ export const Navigation = () => {
                       onClick={() => setIsOpen(false)}
                       className={`text-lg font-medium transition-colors ${
                         isActive("/billing")
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "text-[#84cc16]"
+                          : "text-gray-300 hover:text-white"
                       }`}
                     >
                       Billing & Blockchain
                     </Link>
                     <button
                       onClick={() => setIsBillingExpanded(!isBillingExpanded)}
-                      className="p-1"
+                      className="p-1 text-gray-300"
                     >
-                      <ChevronDown 
+                      <ChevronDown
                         className={`w-4 h-4 transition-transform ${
                           isBillingExpanded ? 'rotate-180' : ''
                         }`}
@@ -376,8 +376,8 @@ export const Navigation = () => {
                           onClick={() => setIsOpen(false)}
                           className={`text-sm transition-colors block ml-4 py-1 ${
                             isActive(subpage.href)
-                              ? "text-primary"
-                              : "text-muted-foreground hover:text-foreground"
+                              ? "text-[#84cc16]"
+                              : "text-gray-300 hover:text-white"
                           }`}
                         >
                           {subpage.label}
@@ -395,17 +395,17 @@ export const Navigation = () => {
                       onClick={() => setIsOpen(false)}
                       className={`text-lg font-medium transition-colors ${
                         isActive("/case-studies")
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "text-[#84cc16]"
+                          : "text-gray-300 hover:text-white"
                       }`}
                     >
                       Case Studies
                     </Link>
                     <button
                       onClick={() => setIsCaseStudiesExpanded(!isCaseStudiesExpanded)}
-                      className="p-1"
+                      className="p-1 text-gray-300"
                     >
-                      <ChevronDown 
+                      <ChevronDown
                         className={`w-4 h-4 transition-transform ${
                           isCaseStudiesExpanded ? 'rotate-180' : ''
                         }`}
@@ -421,8 +421,8 @@ export const Navigation = () => {
                           onClick={() => setIsOpen(false)}
                           className={`text-sm transition-colors block ml-4 py-1 ${
                             isActive(subpage.href)
-                              ? "text-primary"
-                              : "text-muted-foreground hover:text-foreground"
+                              ? "text-[#84cc16]"
+                              : "text-gray-300 hover:text-white"
                           }`}
                         >
                           {subpage.label}
@@ -434,7 +434,7 @@ export const Navigation = () => {
                 
                 {/* More section for mobile */}
                 <div className="pt-4">
-                  <div className="text-lg font-medium text-muted-foreground mb-2">More</div>
+                  <div className="text-lg font-medium text-gray-400 mb-2">More</div>
                   {/* About with subpages */}
                   <div className="ml-4">
                     <div className="flex items-center justify-between">
@@ -443,17 +443,17 @@ export const Navigation = () => {
                         onClick={() => setIsOpen(false)}
                         className={`text-base font-medium transition-colors ${
                           isActive("/about")
-                            ? "text-primary"
-                            : "text-muted-foreground hover:text-foreground"
+                            ? "text-[#84cc16]"
+                            : "text-gray-300 hover:text-white"
                         }`}
                       >
                         About
                       </Link>
                       <button
                         onClick={() => setIsAboutExpanded(!isAboutExpanded)}
-                        className="p-1"
+                        className="p-1 text-gray-300"
                       >
-                        <ChevronDown 
+                        <ChevronDown
                           className={`w-4 h-4 transition-transform ${
                             isAboutExpanded ? 'rotate-180' : ''
                           }`}
@@ -469,8 +469,8 @@ export const Navigation = () => {
                             onClick={() => setIsOpen(false)}
                             className={`text-sm transition-colors block ml-4 py-1 ${
                               isActive(subpage.href)
-                                ? "text-primary"
-                                : "text-muted-foreground hover:text-foreground"
+                                ? "text-[#84cc16]"
+                                : "text-gray-300 hover:text-white"
                             }`}
                           >
                             {subpage.label}
@@ -487,17 +487,17 @@ export const Navigation = () => {
                         onClick={() => setIsOpen(false)}
                         className={`text-base font-medium transition-colors ${
                           isActive("/blog")
-                            ? "text-primary"
-                            : "text-muted-foreground hover:text-foreground"
+                            ? "text-[#84cc16]"
+                            : "text-gray-300 hover:text-white"
                         }`}
                       >
                         Blog
                       </Link>
                       <button
                         onClick={() => setIsBlogExpanded(!isBlogExpanded)}
-                        className="p-1"
+                        className="p-1 text-gray-300"
                       >
-                        <ChevronDown 
+                        <ChevronDown
                           className={`w-4 h-4 transition-transform ${
                             isBlogExpanded ? 'rotate-180' : ''
                           }`}
@@ -513,8 +513,8 @@ export const Navigation = () => {
                             onClick={() => setIsOpen(false)}
                             className={`text-sm transition-colors block ml-4 py-1 ${
                               isActive(subpage.href)
-                                ? "text-primary"
-                                : "text-muted-foreground hover:text-foreground"
+                                ? "text-[#84cc16]"
+                                : "text-gray-300 hover:text-white"
                             }`}
                           >
                             {subpage.label}
@@ -531,8 +531,8 @@ export const Navigation = () => {
                       onClick={() => setIsOpen(false)}
                       className={`text-base font-medium transition-colors block ml-4 py-1 ${
                         isActive(item.href)
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "text-[#84cc16]"
+                          : "text-gray-300 hover:text-white"
                       }`}
                     >
                       {item.label}
@@ -542,12 +542,12 @@ export const Navigation = () => {
                 
                 <div className="pt-4 space-y-2">
                   <Link to="/portal" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full">
+                    <Button variant="ghost" className="w-full text-white hover:bg-white/10">
                       Portal Login
                     </Button>
                   </Link>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-gradient-primary text-white">
+                    <Button className="w-full bg-[#84cc16] hover:bg-[#75bb14] text-white font-semibold rounded-full">
                       Request Demo
                     </Button>
                   </Link>

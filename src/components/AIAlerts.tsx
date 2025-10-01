@@ -2,15 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  AlertTriangle, 
-  CheckCircle, 
-  Clock, 
-  Wrench, 
-  CloudDrizzle,
-  TreePine,
-  Thermometer
-} from "lucide-react";
+import { TriangleAlert as AlertTriangle, CircleCheck as CheckCircle, Clock, Wrench, CloudDrizzle, TreePine, Thermometer } from "lucide-react";
 
 interface Alert {
   id: string;
@@ -71,25 +63,25 @@ export const AIAlerts = () => {
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
-      case "high": return "text-destructive bg-destructive/10 border-destructive";
-      case "medium": return "text-warning bg-warning/10 border-warning";
-      case "low": return "text-muted-foreground bg-muted border-border";
-      default: return "text-muted-foreground bg-muted border-border";
+      case "high": return "bg-gradient-to-br from-red-500/20 to-red-600/10 border-red-400/50 text-red-200";
+      case "medium": return "bg-gradient-to-br from-yellow-500/20 to-orange-500/10 border-yellow-400/50 text-yellow-100";
+      case "low": return "bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-blue-400/50 text-blue-200";
+      default: return "bg-gradient-to-br from-gray-500/20 to-gray-600/10 border-gray-400/50 text-gray-200";
     }
   };
 
   const getIcon = (type: string) => {
     switch (type) {
-      case "maintenance": return <Wrench className="w-4 h-4" />;
-      case "cleaning": return <CloudDrizzle className="w-4 h-4" />;
-      case "shading": return <TreePine className="w-4 h-4" />;
-      case "weather": return <Thermometer className="w-4 h-4" />;
-      default: return <AlertTriangle className="w-4 h-4" />;
+      case "maintenance": return <Wrench className="w-5 h-5" />;
+      case "cleaning": return <CloudDrizzle className="w-5 h-5" />;
+      case "shading": return <TreePine className="w-5 h-5" />;
+      case "weather": return <Thermometer className="w-5 h-5" />;
+      default: return <AlertTriangle className="w-5 h-5" />;
     }
   };
 
   const resolveAlert = (id: string) => {
-    setAlerts(prev => prev.map(alert => 
+    setAlerts(prev => prev.map(alert =>
       alert.id === id ? { ...alert, resolved: true } : alert
     ));
   };
@@ -98,55 +90,61 @@ export const AIAlerts = () => {
   const resolvedAlerts = alerts.filter(alert => alert.resolved);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center space-x-2">
-          <AlertTriangle className="w-5 h-5 text-warning" />
-          <span>AI Predictive Alerts</span>
-          <Badge variant="outline" className="ml-auto">
+    <Card className="bg-[#6b9b8a]/90 backdrop-blur-sm border-none shadow-2xl">
+      <CardHeader className="border-b border-white/20 pb-6">
+        <CardTitle className="flex items-center space-x-3">
+          <div className="p-2 bg-[#8ab89e]/40 rounded-xl">
+            <AlertTriangle className="w-6 h-6 text-[#ffd66b]" />
+          </div>
+          <span className="text-2xl font-bold text-white">AI Predictive Alerts</span>
+          <Badge variant="outline" className="ml-auto bg-[#ffd66b]/20 border-[#ffd66b]/40 text-white">
             {activeAlerts.length} Active
           </Badge>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        {/* Active Alerts */}
-        <div className="space-y-3">
-          <h4 className="text-sm font-medium text-foreground">Active Alerts</h4>
+      <CardContent className="space-y-6 pt-6">
+        <div className="space-y-4">
+          <h4 className="text-lg font-bold text-white flex items-center">
+            <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+            Active Alerts
+          </h4>
           {activeAlerts.length === 0 ? (
-            <div className="flex items-center space-x-2 text-success">
-              <CheckCircle className="w-4 h-4" />
-              <span className="text-sm">All systems operating normally</span>
+            <div className="flex items-center space-x-3 p-4 bg-[#8ab89e]/30 border border-white/20 rounded-xl">
+              <CheckCircle className="w-5 h-5 text-[#d4e8a6]" />
+              <span className="text-base text-white font-medium">All systems operating normally</span>
             </div>
           ) : (
             activeAlerts.map((alert) => (
-              <div key={alert.id} className={`border rounded-lg p-4 ${getSeverityColor(alert.severity)}`}>
+              <div key={alert.id} className={`border-2 rounded-xl p-5 ${getSeverityColor(alert.severity)} shadow-lg backdrop-blur-sm`}>
                 <div className="flex items-start justify-between">
-                  <div className="flex items-start space-x-3">
-                    {getIcon(alert.type)}
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-white/10 rounded-lg">
+                      {getIcon(alert.type)}
+                    </div>
                     <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-1">
-                        <h5 className="text-sm font-medium">{alert.title}</h5>
-                        <Badge variant="outline" className="text-xs">
-                          {alert.aiConfidence}% AI Confidence
+                      <div className="flex items-center space-x-2 mb-2">
+                        <h5 className="text-base font-bold text-white">{alert.title}</h5>
+                        <Badge variant="outline" className="text-xs bg-white/10 border-white/30 text-white">
+                          {alert.aiConfidence}% Confidence
                         </Badge>
                       </div>
-                      <p className="text-xs opacity-80 mb-2">{alert.description}</p>
-                      <div className="flex items-center space-x-4 text-xs opacity-60">
+                      <p className="text-sm leading-relaxed mb-3 text-white/90">{alert.description}</p>
+                      <div className="flex items-center space-x-4 text-xs text-white/80">
                         <div className="flex items-center space-x-1">
-                          <Clock className="w-3 h-3" />
-                          <span>{alert.timestamp.toLocaleTimeString()}</span>
+                          <Clock className="w-4 h-4" />
+                          <span className="font-medium">{alert.timestamp.toLocaleTimeString()}</span>
                         </div>
-                        <Badge variant="secondary" className="text-xs">
-                          {alert.severity.toUpperCase()}
+                        <Badge className="text-xs font-bold px-2 py-1 bg-white/20 text-white border-0">
+                          {alert.severity.toUpperCase()} PRIORITY
                         </Badge>
                       </div>
                     </div>
                   </div>
-                  <Button 
-                    size="sm" 
+                  <Button
+                    size="sm"
                     variant="outline"
                     onClick={() => resolveAlert(alert.id)}
-                    className="text-xs"
+                    className="text-xs bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white font-semibold"
                   >
                     Resolve
                   </Button>
@@ -156,17 +154,21 @@ export const AIAlerts = () => {
           )}
         </div>
 
-        {/* Resolved Alerts */}
         {resolvedAlerts.length > 0 && (
-          <div className="space-y-3 pt-4 border-t border-border">
-            <h4 className="text-sm font-medium text-muted-foreground">Recently Resolved</h4>
+          <div className="space-y-4 pt-6 border-t border-white/20">
+            <h4 className="text-lg font-bold text-white flex items-center opacity-75">
+              <CheckCircle className="w-5 h-5 mr-2 text-[#d4e8a6]" />
+              Recently Resolved
+            </h4>
             {resolvedAlerts.slice(0, 2).map((alert) => (
-              <div key={alert.id} className="border rounded-lg p-3 bg-muted/30 opacity-75">
+              <div key={alert.id} className="border-2 border-white/20 rounded-xl p-4 bg-[#8ab89e]/20 backdrop-blur-sm">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-4 h-4 text-success" />
+                  <div className="p-2 bg-[#8ab89e]/30 rounded-lg">
+                    <CheckCircle className="w-5 h-5 text-[#d4e8a6]" />
+                  </div>
                   <div className="flex-1">
-                    <h5 className="text-sm font-medium text-foreground">{alert.title}</h5>
-                    <p className="text-xs text-muted-foreground">
+                    <h5 className="text-base font-bold text-white">{alert.title}</h5>
+                    <p className="text-sm text-white/70">
                       Resolved at {alert.timestamp.toLocaleTimeString()}
                     </p>
                   </div>

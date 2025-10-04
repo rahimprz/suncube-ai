@@ -2,19 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ImageShowcase } from "@/components/ImageShowcase";
 import { Link } from "react-router-dom";
-import { 
-  Home, 
-  Building2, 
-  Grid3x3, 
-  Activity, 
-  TrendingUp, 
-  Cloud,
-  ArrowRight,
-  Zap,
-  Shield,
-  Brain
-} from "lucide-react";
+import { Chrome as Home, Building2, Grid3x3, Activity, TrendingUp, Cloud, ArrowRight, Zap, Shield, Brain } from "lucide-react";
 
 const solutions = [
   {
@@ -78,36 +68,42 @@ export default function Solutions() {
         }}
       />
 
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Solar panel solutions"
+      />
+
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution, index) => (
-              <Card key={index} className="hover:shadow-eco transition-all duration-300">
-                <CardHeader>
+              <Card key={index} className="group relative overflow-hidden border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#84cc16]/20 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#84cc16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="relative">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
+                    <div className="p-3 bg-gradient-to-br from-[#84cc16]/20 to-[#65a30d]/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       {solution.icon}
                     </div>
-                    <Badge variant="secondary">{solution.price}</Badge>
+                    <Badge variant="secondary" className="bg-[#84cc16]/10 text-[rgb(14,90,56)] border-[#84cc16]/30">{solution.price}</Badge>
                   </div>
-                  <CardTitle className="text-xl">{solution.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-[rgb(14,90,56)] transition-colors">{solution.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">{solution.description}</p>
-                  
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm">Key Features:</h4>
-                    <ul className="space-y-1">
+                <CardContent className="space-y-4 relative">
+                  <p className="text-muted-foreground leading-relaxed">{solution.description}</p>
+
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-sm text-[rgb(14,90,56)]">Key Features:</h4>
+                    <ul className="space-y-2">
                       {solution.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center space-x-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                          <div className="w-2 h-2 bg-gradient-to-r from-[#84cc16] to-[#65a30d] rounded-full flex-shrink-0"></div>
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <Button className="w-full mt-4" variant="outline" asChild>
+                  <Button className="w-full mt-4 bg-gradient-to-r from-[#84cc16] to-[#65a30d] hover:from-[#75bb14] hover:to-[#559309] text-white font-semibold shadow-md hover:shadow-lg transition-all" asChild>
                     <Link to={
                       index === 0 ? "/solutions/residential/ai-optimization" :
                       index === 1 ? "/solutions/commercial/enterprise-monitoring" :
@@ -142,37 +138,46 @@ export default function Solutions() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardHeader>
-                <Brain className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>Artificial Intelligence</CardTitle>
+            <Card className="group text-center border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#84cc16]/20 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#84cc16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardHeader className="relative">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[#84cc16]/20 to-[#65a30d]/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="w-12 h-12 text-[rgb(14,90,56)]" />
+                </div>
+                <CardTitle className="group-hover:text-[rgb(14,90,56)] transition-colors">Artificial Intelligence</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
+              <CardContent className="relative">
+                <p className="text-muted-foreground leading-relaxed">
                   Machine learning algorithms optimize energy production, predict maintenance needs, and automate grid interactions.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardHeader>
-                <Shield className="w-12 h-12 text-grid-blue mx-auto mb-4" />
-                <CardTitle>Blockchain Security</CardTitle>
+            <Card className="group text-center border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#84cc16]/20 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#84cc16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardHeader className="relative">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[#84cc16]/20 to-[#65a30d]/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="w-12 h-12 text-[rgb(14,90,56)]" />
+                </div>
+                <CardTitle className="group-hover:text-[rgb(14,90,56)] transition-colors">Blockchain Security</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
+              <CardContent className="relative">
+                <p className="text-muted-foreground leading-relaxed">
                   Secure, transparent energy transactions with immutable records and smart contract automation.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardHeader>
-                <Zap className="w-12 h-12 text-eco-green mx-auto mb-4" />
-                <CardTitle>IoT Integration</CardTitle>
+            <Card className="group text-center border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/60 transition-all duration-500 hover:shadow-2xl hover:shadow-[#84cc16]/20 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#84cc16]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardHeader className="relative">
+                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-[#84cc16]/20 to-[#65a30d]/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-12 h-12 text-[rgb(14,90,56)]" />
+                </div>
+                <CardTitle className="group-hover:text-[rgb(14,90,56)] transition-colors">IoT Integration</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
+              <CardContent className="relative">
+                <p className="text-muted-foreground leading-relaxed">
                   Real-time sensor data and smart device connectivity for comprehensive system monitoring.
                 </p>
               </CardContent>

@@ -2,19 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ImageShowcase } from "@/components/ImageShowcase";
 import { Link } from "react-router-dom";
-import { 
-  CreditCard, 
-  Shield, 
-  TrendingUp, 
-  Receipt, 
-  Coins,
-  Lock,
-  Activity,
-  DollarSign,
-  CheckCircle,
-  Download
-} from "lucide-react";
+import { CreditCard, Shield, TrendingUp, Receipt, Coins, Lock, Activity, DollarSign, CircleCheck as CheckCircle, Download } from "lucide-react";
 
 const mockTransactions = [
   {
@@ -61,6 +51,11 @@ export default function Billing() {
           label: "Learn More",
           href: "/contact"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Blockchain and secure payments"
       />
 
       {/* Features Overview */}

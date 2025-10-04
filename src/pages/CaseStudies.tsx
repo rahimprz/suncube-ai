@@ -2,7 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
-import { TrendingUp, Users, Building2, Home, ArrowRight } from "lucide-react";
+import { ImageShowcase } from "@/components/ImageShowcase";
+import { TrendingUp, Users, Building2, Chrome as Home, ArrowRight } from "lucide-react";
 
 const caseStudies = [
   {
@@ -73,6 +74,11 @@ export default function CaseStudies() {
           label: "Download Reports",
           href: "/contact"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/8154190/pexels-photo-8154190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Solar project success stories"
       />
 
       {/* Case Studies Grid */}

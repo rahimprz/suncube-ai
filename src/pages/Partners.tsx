@@ -2,17 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
-import { 
-  Handshake, 
-  TrendingUp, 
-  Users, 
-  Award,
-  CheckCircle,
-  ArrowRight,
-  DollarSign,
-  Shield,
-  Brain
-} from "lucide-react";
+import { ImageShowcase } from "@/components/ImageShowcase";
+import { Handshake, TrendingUp, Users, Award, CircleCheck as CheckCircle, ArrowRight, DollarSign, Shield, Brain } from "lucide-react";
 
 const partnerBenefits = [
   {
@@ -77,6 +68,11 @@ export default function Partners() {
           label: "Why Partner With Us",
           href: "/partners/why-partner"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Partnership opportunities"
       />
 
       {/* Why Partner With Us */}
@@ -244,20 +240,20 @@ export default function Partners() {
       </section>
 
       {/* Partner Application CTA */}
-      <section className="py-20 bg-gradient-primary text-white">
+      <section className="py-20 bg-gradient-to-br from-[rgb(14,90,56)] via-[rgb(18,110,70)] to-[rgb(14,90,56)] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 drop-shadow-lg">
             Ready to Join Our Partner Network?
           </h2>
-          <p className="text-xl opacity-90 mb-8">
+          <p className="text-xl opacity-95 mb-8">
             Start your partnership journey today and help shape the future of solar energy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-primary">
+            <Button size="lg" className="bg-[#84cc16] hover:bg-[#75bb14] text-white">
               Apply Now
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 backdrop-blur-sm">
               Download Partner Kit
             </Button>
           </div>

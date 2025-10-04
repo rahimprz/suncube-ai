@@ -137,13 +137,70 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
+
   .animate-float-delayed {
     animation: float 3s ease-in-out infinite;
     animation-delay: 1.5s;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced card styles */
+  .card-enhanced {
+    @apply backdrop-blur-sm bg-card/80 border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#84cc16]/20;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#84cc16] to-[#65a30d] bg-clip-text text-transparent;
+  }
+
+  /* Enhanced focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-[#84cc16] ring-offset-2 ring-offset-background;
+  }
+
+  /* Better button hover states */
+  button:hover {
+    @apply transform transition-all duration-200;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[rgb(14,90,56)] rounded-full hover:bg-[#84cc16];
+  }
+
+  /* Smooth image loading */
+  img {
+    @apply transition-opacity duration-300;
+  }
+
+  img[loading="lazy"] {
+    opacity: 0;
+  }
+
+  img[loading="lazy"].loaded {
+    opacity: 1;
   }
 }

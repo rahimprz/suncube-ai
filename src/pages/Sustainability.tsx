@@ -2,31 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ImageShowcase } from "@/components/ImageShowcase";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Leaf, 
-  TreePine, 
-  Droplets, 
-  Wind,
-  Target,
-  TrendingUp,
-  Award,
-  Users,
-  Download,
-  Share2,
-  BarChart3,
-  Calendar,
-  Zap,
-  Car,
-  Globe,
-  Linkedin,
-  MessageCircle,
-  Twitter
-} from "lucide-react";
+import { Leaf, TreePine, Droplets, Wind, Target, TrendingUp, Award, Users, Download, Share2, ChartBar as BarChart3, Calendar, Zap, Car, Globe, Linkedin, MessageCircle, Twitter } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Interactive CO₂ Offset Simulation Data
@@ -120,6 +102,11 @@ export default function Sustainability() {
           label: "Explore My Offset",
           href: "/contact"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Environmental sustainability"
       />
 
       {/* Section 2: Real-Time CO₂ Offset Simulation */}
@@ -537,7 +524,7 @@ export default function Sustainability() {
       </section>
 
       {/* Global Impact */}
-      <section className="py-20 bg-green-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-[rgb(14,90,56)] via-[rgb(18,110,70)] to-[rgb(14,90,56)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Global Environmental Impact
@@ -547,19 +534,19 @@ export default function Sustainability() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="animate-in slide-in-from-bottom-2 duration-500">
+            <div className="animate-in slide-in-from-bottom-2 duration-500 backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
               <div className="text-4xl lg:text-5xl font-bold mb-2">50,000+</div>
               <div className="text-lg opacity-90">Tons CO₂ Prevented</div>
             </div>
-            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-100">
+            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-100 backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
               <div className="text-4xl lg:text-5xl font-bold mb-2">625,000</div>
               <div className="text-lg opacity-90">Trees Equivalent</div>
             </div>
-            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-200">
+            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-200 backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
               <div className="text-4xl lg:text-5xl font-bold mb-2">35M+</div>
               <div className="text-lg opacity-90">Gallons Water Saved</div>
             </div>
-            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-300">
+            <div className="animate-in slide-in-from-bottom-2 duration-500 delay-300 backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
               <div className="text-4xl lg:text-5xl font-bold mb-2">128 GWh</div>
               <div className="text-lg opacity-90">Clean Energy Generated</div>
             </div>

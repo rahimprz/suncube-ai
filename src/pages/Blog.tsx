@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ImageShowcase } from "@/components/ImageShowcase";
 import { 
   Calendar, 
   User, 
@@ -92,6 +93,11 @@ export default function Blog() {
           label: "Download Resources",
           href: "/contact"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/1181346/pexels-photo-1181346.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Solar energy insights and resources"
       />
 
       <section className="py-20 bg-background">

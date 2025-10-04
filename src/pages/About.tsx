@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HeroSection } from "@/components/ui/hero-section";
+import { ImageShowcase } from "@/components/ImageShowcase";
 import { 
   Users, 
   Target, 
@@ -47,6 +48,11 @@ export default function About() {
           label: "Leadership",
           href: "/about/leadership"
         }}
+      />
+
+      <ImageShowcase
+        imageUrl="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        altText="Our team and mission"
       />
 
       {/* Our Story */}
@@ -175,19 +181,19 @@ export default function About() {
       </section>
 
       {/* Sustainability Pledge */}
-      <section className="py-20 bg-eco-green text-white">
+      <section className="py-20 bg-gradient-to-br from-[rgb(14,90,56)] via-[rgb(18,110,70)] to-[rgb(14,90,56)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 drop-shadow-lg">
               Our Sustainability Pledge
             </h2>
-            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+            <p className="text-xl opacity-95 max-w-3xl mx-auto">
               We're committed to not just providing clean energy solutions, but operating as a carbon-negative company.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+            <div className="text-center backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-all">
               <Brain className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">Carbon Negative by 2025</h3>
               <p className="opacity-90">
@@ -195,7 +201,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="text-center">
+            <div className="text-center backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-all">
               <TrendingUp className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">100% Renewable Energy</h3>
               <p className="opacity-90">
@@ -203,7 +209,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="text-center">
+            <div className="text-center backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-all">
               <Award className="w-12 h-12 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">B-Corp Certification</h3>
               <p className="opacity-90">

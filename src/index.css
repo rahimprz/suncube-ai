@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Suncube AI Design System - Eco-friendly Solar Energy Theme */
+
+@layer base {
+  :root {
+    /* Core background colors */
+    --background: 120 20% 98%;
+    --foreground: 150 100% 8%;
+
+    /* Card components */
+    --card: 120 30% 97%;
+    --card-foreground: 150 100% 8%;
+
+    /* Popover components */
+    --popover: 120 30% 97%;
+    --popover-foreground: 150 100% 8%;
+
+    /* Primary green theme */
+    --primary: 142 76% 36%;
+    --primary-foreground: 120 30% 97%;
+    --primary-glow: 142 76% 46%;
+
+    /* Secondary earth tones */
+    --secondary: 80 60% 88%;
+    --secondary-foreground: 150 100% 12%;
+
+    /* Muted tones */
+    --muted: 120 20% 92%;
+    --muted-foreground: 150 30% 40%;
+
+    /* Accent colors */
+    --accent: 160 84% 39%;
+    --accent-foreground: 120 30% 97%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 120 30% 97%;
+    --success: 142 76% 36%;
+    --warning: 45 93% 47%;
+
+    /* Solar energy specific colors */
+    --solar-yellow: 48 100% 67%;
+    --solar-orange: 25 95% 53%;
+    --grid-blue: 217 91% 60%;
+    --eco-green: 142 76% 36%;
+
+    /* UI elements */
+    --border: 120 40% 88%;
+    --input: 120 40% 90%;
+    --ring: 142 76% 36%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(160 84% 39%));
+    --gradient-solar: linear-gradient(135deg, hsl(48 100% 67%), hsl(25 95% 53%));
+    --gradient-eco: linear-gradient(135deg, hsl(158 64% 20%), hsl(142 69% 15%));
+
+    /* Shadows */
+    --shadow-eco: 0 10px 30px -10px hsl(142 76% 36% / 0.3);
+    --shadow-glow: 0 0 40px hsl(142 76% 46% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Custom animations for floating elements */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced card styles */
+  .card-enhanced {
+    @apply backdrop-blur-sm bg-card/80 border-2 border-[rgb(14,90,56)]/20 hover:border-[#84cc16]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#84cc16]/20;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#84cc16] to-[#65a30d] bg-clip-text text-transparent;
+  }
+
+  /* Enhanced focus states */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-[#84cc16] ring-offset-2 ring-offset-background;
+  }
+
+  /* Better button hover states */
+  button:hover {
+    @apply transform transition-all duration-200;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[rgb(14,90,56)] rounded-full hover:bg-[#84cc16];
+  }
+
+  /* Smooth image loading */
+  img {
+    @apply transition-opacity duration-300;
+  }
+
+  img[loading="lazy"] {
+    opacity: 0;
+  }
+
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
+}
